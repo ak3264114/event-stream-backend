@@ -2,12 +2,9 @@
 const User = require('../models/user');
 const tokenHelper = require('../helpers/tokenHelper');
 const configConsts = require('../config/constants');
-const sgMail = require('@sendgrid/mail');
 const { CustomError } = require('../helpers/errorHelper');
 const { sendVerificationEmail } = require('../helpers/emailHelper.js');
 const EventParticipation = require('../models/eventParticipation');
-
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 exports.register = async (req, res, next) => {
     const { email, phone, password, name } = req.body;
