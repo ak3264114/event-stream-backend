@@ -5,10 +5,8 @@ exports.connect = function () {
         mongoose.connect(
             process.env.MONGO_DB_URI,
             {
-                useFindAndModify: false,
                 useNewUrlParser: true,
-                useUnifiedTopology: true,
-                useCreateIndex: true
+                useUnifiedTopology: true
             },
             () => {
                 console.log('Database Connected');

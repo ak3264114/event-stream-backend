@@ -43,5 +43,4 @@ const getApp = async () => {
 
     return app;
 };
-
 getApp();
