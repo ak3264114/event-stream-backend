@@ -19,6 +19,13 @@ app.use(cors());
 app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(
+    cors({
+        origin: 'https://event-stream.vercel.app',
+        methods: ['GET', 'POST', 'PUT', 'DELETE'],
+        credentials: true
+    })
+);
 
 const getApp = async () => {
     await Mongoose.connect();
