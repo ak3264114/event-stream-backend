@@ -14,7 +14,6 @@ const getAdminRouter = require('./routes/admin.routes');
 const app = express();
 
 app.use(cors());
-app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
 
