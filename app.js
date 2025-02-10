@@ -1,5 +1,6 @@
 const createError = require('http-errors');
 const express = require('express');
+const http = require('http');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
@@ -12,8 +13,10 @@ const eventsRouter = require('./routes/event.routes');
 const getAdminRouter = require('./routes/admin.routes');
 
 const app = express();
+const server = http.createServer(app);
 
 app.use(cors());
+app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -31,7 +34,7 @@ const getApp = async () => {
     });
 
     const PORT = process.env.PORT || 4000;
-    app.listen(PORT, () => {
+    server.listen(PORT, () => {
         console.log(`Listening on http://localhost:${PORT}`);
     });
 
