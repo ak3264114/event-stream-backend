@@ -18,7 +18,7 @@ exports.register = async (req, res, next) => {
             throw new CustomError('User with this phone already exists.', 400);
         }
         const user = await User.addUser({ name, phone, email, password });
-        await sendVerificationEmail(user);
+        // await sendVerificationEmail(user);
         return res.status(201).json({
             err: false,
             token: tokenHelper.sign({
