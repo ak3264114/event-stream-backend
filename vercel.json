@@ -9,7 +9,7 @@
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "/var/task/app.js"
+            "dest": "app.js"
         }
     ]
 }
